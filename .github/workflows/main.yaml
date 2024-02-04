@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo interrepo-actions-src OK
+  kick-workflow-in-another-repo:
+    runs-on: ubuntu-latest
+    needs: sample
+    steps:
+      - name: Kick workflow in another repo
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: mddrive
+          repo: interrepo-actions-dst
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow_file_name: main.yaml
+          ref: main
