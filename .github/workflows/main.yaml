@@ -16,6 +16,6 @@ jobs:
         with:
           owner: mddrive
           repo: interrepo-actions-dst
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN_WORKFLOW_DST }}
           workflow_file_name: main.yaml
           ref: main
